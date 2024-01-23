@@ -2,14 +2,15 @@
 
 
 Note: Forked form [`react-image-gallery`](https://github.com/xiaolin/react-image-gallery)
-- Added Support for next js
+- Added Support for Next JS with `<Image>` tag from `next/image`
 ### Live Demo (try it on mobile for swipe support)
 
 [`linxtion.com/demo/react-image-gallery`](http://linxtion.com/demo/react-image-gallery)
 
-![demo gif](https://github.com/sangeethkumarsg/next-image-gallery/raw/master/static/image_gallery_v1.0.2.gif)
+![demo gif](https://github.com/sangeethkumarsg/next-image-gallery/raw/main/static/image_gallery_v1.0.2.gif)
 
-React image gallery is a React component for building image galleries and carousels
+Next image gallery is a React component for building image galleries and carousels, it uses Next JS `<Image>` tag from `next/image`. 
+
 
 ## Features
 
@@ -20,6 +21,7 @@ React image gallery is a React component for building image galleries and carous
 - RTL support
 - Responsive design
 - Tons of customization options (see props below)
+- Uses Next JS built in tag `<Image>` from `next/image` and thereby provide support for image optimization.
 
 ## Getting started
 
@@ -50,14 +52,26 @@ const images = [
   {
     original: "https://picsum.photos/id/1018/1000/600/",
     thumbnail: "https://picsum.photos/id/1018/250/150/",
+    originalWidth: 1000,
+    originalHeight: 600,
+    thumbnailWidth: 250
+    thumbnailHeight: 150,
   },
   {
     original: "https://picsum.photos/id/1015/1000/600/",
     thumbnail: "https://picsum.photos/id/1015/250/150/",
+   originalWidth: 1000,
+    originalHeight: 600,
+    thumbnailWidth: 250
+    thumbnailHeight: 150,
   },
   {
     original: "https://picsum.photos/id/1019/1000/600/",
     thumbnail: "https://picsum.photos/id/1019/250/150/",
+    originalWidth: 1000,
+    originalHeight: 600,
+    thumbnailWidth: 250
+    thumbnailHeight: 150,
   },
 ];
 
@@ -75,11 +89,11 @@ class MyGallery extends React.Component {
     - `original` - image src url
     - `thumbnail` - image thumbnail src url
     - `fullscreen` - image for fullscreen (defaults to original)
-    - `originalHeight` - image height (html5 attribute)
-    - `originalWidth` - image width (html5 attribute)
+    - `originalHeight` - image height (html5 attribute), It is mandatory as `next/image` need this parameter for optimization
+    - `originalWidth` - image width (html5 attribute), It is mandatory as `next/image` need this parameter for optimization
     - `loading` - image loading. Either "lazy" or "eager" (html5 attribute)
-    - `thumbnailHeight` - image height (html5 attribute)
-    - `thumbnailWidth` - image width (html5 attribute)
+    - `thumbnailHeight` - image height (html5 attribute), It is mandatory as `next/image` need this parameter for optimization
+    - `thumbnailWidth` - image width (html5 attribute), It is mandatory as `next/image` need this parameter for optimization
     - `thumbnailLoading` - image loading. Either "lazy" or "eager" (html5 attribute)
     - `originalClass` - custom image class
     - `thumbnailClass` - custom thumbnail class
