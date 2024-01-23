@@ -1,5 +1,6 @@
 import React from "react";
 import { bool, func, string } from "prop-types";
+import Image from "next/image";
 
 const defaultProps = {
   description: "",
@@ -32,20 +33,28 @@ const Item = React.memo((props) => {
   } = { ...defaultProps, ...props };
   const itemSrc = isFullscreen ? fullscreen || original : original;
 
+  const imgTagProps = {
+    src: itemSrc,
+    alt: originalAlt,
+    srcSet: srcSet,
+    height: originalHeight,
+    width: originalWidth,
+    sizes: sizes,
+    title: originalTitle,
+    onLoad: (event) => handleImageLoaded(event, original),
+    onError: onImageError,
+    loading
+  };
+
+  if(!originalHeight){
+    imgTagProps.layout =  'fill';
+  }
+
   return (
     <React.Fragment>
-      <img
+      <Image
         className="image-gallery-image"
-        src={itemSrc}
-        alt={originalAlt}
-        srcSet={srcSet}
-        height={originalHeight}
-        width={originalWidth}
-        sizes={sizes}
-        title={originalTitle}
-        onLoad={(event) => handleImageLoaded(event, original)}
-        onError={onImageError}
-        loading={loading}
+        {...imgTagProps}
       />
       {description && (
         <span className="image-gallery-description">{description}</span>

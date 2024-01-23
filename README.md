@@ -1,14 +1,13 @@
-# React Image Gallery
+# Next Image Gallery
 
-[![npm version](https://badge.fury.io/js/react-image-gallery.svg)](https://badge.fury.io/js/react-image-gallery)
-[![Download Count](http://img.shields.io/npm/dm/react-image-gallery.svg?style=flat)](https://www.npmjs.com/package/react-image-gallery)
-[![Bundle size](https://badgen.net/bundlephobia/minzip/react-image-gallery)](https://bundlephobia.com/package/react-image-gallery)
 
+Note: Forked form [`react-image-gallery`](https://github.com/xiaolin/react-image-gallery)
+- Added Support for next js
 ### Live Demo (try it on mobile for swipe support)
 
 [`linxtion.com/demo/react-image-gallery`](http://linxtion.com/demo/react-image-gallery)
 
-![demo gif](https://github.com/xiaolin/react-image-gallery/raw/master/static/image_gallery_v1.0.2.gif)
+![demo gif](https://github.com/sangeethkumarsg/next-image-gallery/raw/master/static/image_gallery_v1.0.2.gif)
 
 React image gallery is a React component for building image galleries and carousels
 
@@ -24,28 +23,28 @@ React image gallery is a React component for building image galleries and carous
 
 ## Getting started
 
-React Image Gallery requires **React 16.0.0 or later.**
+Next Image Gallery requires **React 16.0.0 or later.** and **Next 12.1.6 or later.**
 
 ```
-npm install react-image-gallery
+npm install next-image-gallery
 ```
 
 ### Style import (with webpack)
 
 ```
 # SCSS
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "~next-image-gallery/styles/scss/image-gallery.scss";
 
 # CSS
-@import "~react-image-gallery/styles/css/image-gallery.css";
+@import "~next-image-gallery/styles/css/image-gallery.css";
 ```
 
 ### Example
 
-Need more example? See [`example/app.js`](https://github.com/xiaolin/react-image-gallery/blob/master/example/app.js)
+Need more example? See [`example/app.js`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/example/app.js)
 
 ```js
-import ImageGallery from "react-image-gallery";
+import ImageGallery from "next-image-gallery";
 
 const images = [
   {
@@ -175,7 +174,7 @@ class MyGallery extends React.Component {
   - As a prop passed into `ImageGallery` to completely override `_renderThumbInner`, see source for reference
 
 - `renderLeftNav`: Function, custom left nav component
-  - See [`<LeftNav />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/LeftNav.js)
+  - See [`<LeftNav />`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/src/components/controls/LeftNav.js)
   - Use this to render a custom left nav control
   - Args:
     - `onClick` callback that will slide to the previous item
@@ -186,7 +185,7 @@ class MyGallery extends React.Component {
   );
   ```
 - `renderRightNav`: Function, custom right nav component
-  - See [`<RightNav />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/RightNav.js)
+  - See [`<RightNav />`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/src/components/controls/RightNav.js)
   - Use this to render a custom right nav control
   - Args:
     - `onClick` callback that will slide to the next item
@@ -197,7 +196,7 @@ class MyGallery extends React.Component {
   );
   ```
 - `renderPlayPauseButton`: Function, play pause button component
-  - See [`<PlayPause />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/PlayPause.js)
+  - See [`<PlayPause />`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/src/components/controls/PlayPause.js)
   - Use this to render a custom play pause button
   - Args:
     - `onClick` callback that will toggle play/pause
@@ -208,7 +207,7 @@ class MyGallery extends React.Component {
   );
   ```
 - `renderFullscreenButton`: Function, custom fullscreen button component
-  - See [`<Fullscreen />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/Fullscreen.js)
+  - See [`<Fullscreen />`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/src/components/controls/Fullscreen.js)
   - Use this to render a custom fullscreen button
   - Args:
     - `onClick` callback that will toggle fullscreen
@@ -243,8 +242,8 @@ Each pull request (PR) should be specific and isolated to the issue you're tryin
 # Build the example locally (requires node >= 12.13)
 
 ```
-git clone https://github.com/xiaolin/react-image-gallery.git
-cd react-image-gallery
+git clone https://github.com/sangeethkumarsg/next-image-gallery.git
+cd next-image-gallery
 npm install --global yarn
 yarn install
 yarn start

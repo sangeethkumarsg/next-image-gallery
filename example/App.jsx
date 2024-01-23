@@ -2,9 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 import ImageGallery from "src/components/ImageGallery";
+import Image from "next/image";
 
 const PREFIX_URL =
-  "https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/";
+  "https://raw.githubusercontent.com/sangeethkumarsg/next-image-gallery/master/static/";
 
 class App extends React.Component {
   constructor() {
@@ -151,10 +152,11 @@ class App extends React.Component {
         ) : (
           <>
             <button className="play-button" onClick={this._toggleShowVideo} />
-            <img
+            <Image
               alt="sample video cover"
               className="image-gallery-image"
               src={item.original}
+              layout='fill'
             />
             {item.description && (
               <span
