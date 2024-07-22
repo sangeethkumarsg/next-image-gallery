@@ -1,6 +1,6 @@
 {
   "name": "next-image-gallery",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Next JS carousel image gallery component with thumbnail and mobile support",
   "main": "./build/image-gallery.js",
   "scripts": {
