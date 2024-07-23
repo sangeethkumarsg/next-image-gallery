@@ -53,6 +53,8 @@ const Item = React.memo((props) => {
     imgTagProps.layout =  'fill';
   }
 
+  console.log("imgTagProps: ",imgTagProps);
+
   return (
     <React.Fragment>
       <Image
