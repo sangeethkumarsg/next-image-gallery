@@ -22,6 +22,7 @@ Next image gallery is a React component for building image galleries and carouse
 - Responsive design
 - Tons of customization options (see props below)
 - Uses Next JS built in tag `<Image>` from `next/image` and thereby provide support for image optimization.
+- It support `next/image` of Next 12+ and the latest next from Next JS 14+
 
 ## Getting started
 
@@ -108,6 +109,7 @@ class MyGallery extends React.Component {
     - `srcSet` - image srcset (html5 attribute)
     - `sizes` - image sizes (html5 attribute)
     - `bulletClass` - extra class for the bullet of the item
+    - `priority` - When true, the image will be considered high priority and preload. Check [`Next JS documentation`](https://nextjs.org/docs/app/api-reference/components/image#priority)
 - `infinite`: Boolean, default `true`
   - infinite sliding
 - `lazyLoad`: Boolean, default `false`

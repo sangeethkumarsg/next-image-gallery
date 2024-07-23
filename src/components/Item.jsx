@@ -13,6 +13,7 @@ const defaultProps = {
   sizes: "",
   srcSet: "",
   loading: "eager",
+  priority: false
 };
 
 const Item = React.memo((props) => {
@@ -30,6 +31,7 @@ const Item = React.memo((props) => {
     sizes,
     srcSet,
     loading,
+    priority
   } = { ...defaultProps, ...props };
   const itemSrc = isFullscreen ? fullscreen || original : original;
 
@@ -43,7 +45,8 @@ const Item = React.memo((props) => {
     title: originalTitle,
     onLoad: (event) => handleImageLoaded(event, original),
     onError: onImageError,
-    loading
+    loading,
+    priority: priority
   };
 
   if(!originalHeight){
@@ -79,6 +82,7 @@ Item.propTypes = {
   sizes: string,
   srcSet: string,
   loading: string,
+  priority: bool
 };
 
 export default Item;
