@@ -32,22 +32,27 @@ Next Image Gallery requires **React 16.0.0 or later.** and **Next 12.1.6 or late
 npm install next-image-gallery
 ```
 
-### Style import (with webpack)
+### Style import options
 
 ```
-# SCSS
+# scss file import
 @import "~next-image-gallery/styles/scss/image-gallery.scss";
 
-# CSS
+# css file import
 @import "~next-image-gallery/styles/css/image-gallery.css";
+
+# js file import (using webpack)
+import "next-image-gallery/styles/css/image-gallery.css";
 ```
 
 ### Example
 
-Need more example? See [`example/app.js`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/example/app.js)
+Need more example? See [`example/app.js`](https://github.com/sangeethkumarsg/next-image-gallery/blob/master/example/App.jsx)
 
 ```js
 import ImageGallery from "next-image-gallery";
+// import stylesheet if you're not already using CSS @import
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const images = [
   {
@@ -255,7 +260,7 @@ Each pull request (PR) should be specific and isolated to the issue you're tryin
 - Comment your code
 - Write [clean](https://github.com/ryanmcdermott/clean-code-javascript) code
 
-# Build the example locally (requires node >= 12.13)
+# Build the example locally (requires node >= 18.18)
 
 ```
 git clone https://github.com/sangeethkumarsg/next-image-gallery.git

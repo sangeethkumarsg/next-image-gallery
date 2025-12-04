@@ -1,18 +1,18 @@
 import * as React from "react";
 
-export type ReactImageGalleryImageSet = ReadonlyArray<{
+export type ImageGalleryImageSet = ReadonlyArray<{
     srcSet: string;
     media: string;
 }>;
 
-export interface ReactImageGalleryItem {
+export interface ImageGalleryItem {
     bulletClass?: string | undefined;
     bulletOnClick?({
         item,
         itemIndex,
         currentIndex,
     }: {
-        item: ReactImageGalleryItem;
+        item: ImageGalleryItem;
         itemIndex: number;
         currentIndex: number;
     }): void;
@@ -31,18 +31,18 @@ export interface ReactImageGalleryItem {
     thumbnailTitle?: string | undefined;
     originalClass?: string | undefined;
     thumbnailClass?: string | undefined;
-    renderItem?(item: ReactImageGalleryItem): React.ReactNode;
-    renderThumbInner?(item: ReactImageGalleryItem): React.ReactNode;
-    imageSet?: ReactImageGalleryImageSet | undefined;
+    renderItem?(item: ImageGalleryItem): React.ReactNode;
+    renderThumbInner?(item: ImageGalleryItem): React.ReactNode;
+    imageSet?: ImageGalleryImageSet | undefined;
     srcSet?: string | undefined;
     sizes?: string | undefined;
     loading?: "lazy" | "eager" | undefined;
     thumbnailLoading?: "lazy" | "eager" | undefined;
 }
 
-export interface ReactImageGalleryProps {
+export interface ImageGalleryProps {
     flickThreshold?: number | undefined;
-    items: readonly ReactImageGalleryItem[];
+    items: readonly ImageGalleryItem[];
     showNav?: boolean | undefined;
     autoPlay?: boolean | undefined;
     lazyLoad?: boolean | undefined;
@@ -55,6 +55,7 @@ export interface ReactImageGalleryProps {
     disableThumbnailScroll?: boolean | undefined;
     disableKeyDown?: boolean | undefined;
     disableSwipe?: boolean | undefined;
+    disableThumbnailSwipe?: boolean | undefined;
     useBrowserFullscreen?: boolean | undefined;
     preventDefaultTouchmoveEvent?: boolean | undefined;
     onErrorImageURL?: string | undefined;
@@ -66,6 +67,7 @@ export interface ReactImageGalleryProps {
     slideOnThumbnailOver?: boolean | undefined;
     swipeThreshold?: number | undefined;
     swipingTransitionDuration?: number | undefined;
+    swipingThumbnailTransitionDuration?: number | undefined;
     onSlide?: ((currentIndex: number) => void) | undefined;
     onBeforeSlide?: ((currentIndex: number) => void) | undefined;
     onScreenChange?: ((fullScreen: boolean) => void) | undefined;
@@ -81,32 +83,31 @@ export interface ReactImageGalleryProps {
     onMouseLeave?: React.MouseEventHandler<HTMLDivElement> | undefined;
     onThumbnailError?: React.ReactEventHandler<HTMLImageElement> | undefined;
     onThumbnailClick?: ((event: React.MouseEvent<HTMLAnchorElement>, index: number) => void) | undefined;
+    onBulletClick?: ((event: React.MouseEvent<HTMLElement>, index: number) => void) | undefined;
     renderCustomControls?: (() => React.ReactNode) | undefined;
     renderLeftNav?: ((onClick: React.MouseEventHandler<HTMLElement>, disabled: boolean) => React.ReactNode) | undefined;
-    renderRightNav?:
-        | ((onClick: React.MouseEventHandler<HTMLElement>, disabled: boolean) => React.ReactNode)
-        | undefined;
-    renderPlayPauseButton?:
-        | ((onClick: React.MouseEventHandler<HTMLElement>, isPlaying: boolean) => React.ReactNode)
-        | undefined;
-    renderFullscreenButton?:
-        | ((onClick: React.MouseEventHandler<HTMLElement>, isFullscreen: boolean) => React.ReactNode)
-        | undefined;
-    renderItem?: ((item: ReactImageGalleryItem) => React.ReactNode) | undefined;
-    renderThumbInner?: ((item: ReactImageGalleryItem) => React.ReactNode) | undefined;
+    renderRightNav?: ((onClick: React.MouseEventHandler<HTMLElement>, disabled: boolean) => React.ReactNode) | undefined;
+    renderTopNav?: ((onClick: React.MouseEventHandler<HTMLElement>, disabled: boolean) => React.ReactNode) | undefined;
+    renderBottomNav?: ((onClick: React.MouseEventHandler<HTMLElement>, disabled: boolean) => React.ReactNode) | undefined;
+    renderPlayPauseButton?: ((onClick: React.MouseEventHandler<HTMLElement>, isPlaying: boolean) => React.ReactNode) | undefined;
+    renderFullscreenButton?: ((onClick: React.MouseEventHandler<HTMLElement>, isFullscreen: boolean) => React.ReactNode) | undefined;
+    renderItem?: ((item: ImageGalleryItem) => React.ReactNode) | undefined;
+    renderThumbInner?: ((item: ImageGalleryItem) => React.ReactNode) | undefined;
     stopPropagation?: boolean | undefined;
     additionalClass?: string | undefined;
     useTranslate3D?: boolean | undefined;
     isRTL?: boolean | undefined;
+    useWindowKeyDown?: boolean | undefined;
+    slideVertically?: boolean | undefined;
 }
 
-declare class ReactImageGallery extends React.Component<ReactImageGalleryProps> {
-    play: (callback?: boolean) => void;
-    pause: (callback?: boolean) => void;
+declare class ImageGallery extends React.Component<ImageGalleryProps> {
+    play: (shouldCallOnPlay?: boolean) => void;
+    pause: (shouldCallOnPause?: boolean) => void;
     fullScreen: () => void;
     exitFullScreen: () => void;
-    slideToIndex: (index: number) => void;
+    slideToIndex: (index: number, event?: Event) => void;
     getCurrentIndex: () => number;
 }
 
-export default ReactImageGallery;
+export default ImageGallery;
